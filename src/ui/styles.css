@@ -1,0 +1,168 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+@theme {
+  --color-rh-bg: #ffffff;
+  --color-rh-surface: #f6f6f4;
+  --color-rh-border: #e3e2de;
+  --color-rh-text: #1d1c1a;
+  --color-rh-muted: #6b6963;
+  --color-rh-accent: #c2410c;
+  --color-rh-accent-soft: #fde7d9;
+  --color-rh-danger: #b42318;
+  --font-rh: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-rh-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+}
+
+/*
+ * Tailwind v4 registers some variables with @property, which is ignored inside shadow roots.
+ * Give them initial values here so shadows, rings and transforms still work.
+ */
+:host,
+*,
+::before,
+::after {
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-color: initial;
+  --tw-inset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-inset-ring-shadow: 0 0 #0000;
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-border-style: solid;
+}
+
+.rh-root {
+  font-family: var(--font-rh);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--color-rh-text);
+}
+
+.rh-root[data-theme='dark'] {
+  --color-rh-bg: #1f1e1c;
+  --color-rh-surface: #2a2926;
+  --color-rh-border: #3d3b37;
+  --color-rh-text: #ecebe8;
+  --color-rh-muted: #a19e97;
+  --color-rh-accent: #fb923c;
+  --color-rh-accent-soft: #43281a;
+  --color-rh-danger: #f97066;
+}
+
+/* Highlights inside popover answers (nested dives). Host-page highlights are styled in the document. */
+::highlight(rabbit-hole) {
+  background-color: rgb(251 146 60 / 0.28);
+}
+
+/* Rendered Markdown inside popovers. */
+.rh-prose > * + * {
+  margin-top: 0.6em;
+}
+.rh-prose p,
+.rh-prose li {
+  overflow-wrap: anywhere;
+}
+.rh-prose ul {
+  list-style: disc;
+  padding-left: 1.25em;
+}
+.rh-prose ol {
+  list-style: decimal;
+  padding-left: 1.25em;
+}
+.rh-prose a {
+  color: var(--color-rh-accent);
+  text-decoration: underline;
+}
+.rh-prose code {
+  font-family: var(--font-rh-mono);
+  font-size: 0.88em;
+  background: var(--color-rh-surface);
+  border-radius: 4px;
+  padding: 0.1em 0.3em;
+}
+.rh-prose pre {
+  background: var(--color-rh-surface);
+  border: 1px solid var(--color-rh-border);
+  border-radius: 8px;
+  padding: 0.6em 0.8em;
+  overflow-x: auto;
+}
+.rh-prose pre code {
+  background: none;
+  padding: 0;
+}
+.rh-prose table {
+  border-collapse: collapse;
+  display: block;
+  overflow-x: auto;
+}
+.rh-prose th,
+.rh-prose td {
+  border: 1px solid var(--color-rh-border);
+  padding: 0.25em 0.5em;
+}
+.rh-prose blockquote {
+  border-left: 3px solid var(--color-rh-border);
+  padding-left: 0.75em;
+  color: var(--color-rh-muted);
+}
+.rh-prose h1,
+.rh-prose h2,
+.rh-prose h3 {
+  font-weight: 600;
+}
+.rh-prose .katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+/* Minimal highlight.js theme using our tokens. */
+.hljs-keyword,
+.hljs-built_in,
+.hljs-literal {
+  color: #9333ea;
+}
+.hljs-string,
+.hljs-attr {
+  color: #15803d;
+}
+.hljs-number {
+  color: #b45309;
+}
+.hljs-comment {
+  color: var(--color-rh-muted);
+  font-style: italic;
+}
+.hljs-title,
+.hljs-function {
+  color: #2563eb;
+}
+[data-theme='dark'] .hljs-keyword,
+[data-theme='dark'] .hljs-built_in,
+[data-theme='dark'] .hljs-literal {
+  color: #c084fc;
+}
+[data-theme='dark'] .hljs-string,
+[data-theme='dark'] .hljs-attr {
+  color: #4ade80;
+}
+[data-theme='dark'] .hljs-number {
+  color: #fbbf24;
+}
+[data-theme='dark'] .hljs-title,
+[data-theme='dark'] .hljs-function {
+  color: #60a5fa;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rh-root * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

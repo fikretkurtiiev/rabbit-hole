@@ -1,0 +1,9 @@
+node_modules
+.output
+.wxt
+web-ext.config.ts
+playwright-report
+test-results
+.DS_Store
+*.log
+.output-e2e

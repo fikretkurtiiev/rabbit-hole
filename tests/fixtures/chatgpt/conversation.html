@@ -1,0 +1,35 @@
+<!-- Hand-written approximation of chatgpt.com markup (2026). Replace with a saved real snapshot when updating selectors. -->
+<html class="dark">
+<body>
+<main>
+  <article data-testid="conversation-turn-1">
+    <div data-message-author-role="user" data-message-id="u1">
+      <div class="whitespace-pre-wrap">How do I debounce a function in TypeScript?</div>
+    </div>
+  </article>
+  <article data-testid="conversation-turn-2">
+    <div data-message-author-role="assistant" data-message-id="a1">
+      <div class="markdown prose">
+        <p>A <strong>debounce</strong> delays a call until input settles. The delay is <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true">t</span></span> ms.</p>
+        <pre class="overflow-visible!"><div class="contain-inline-size"><div class="flex items-center">typescript<button aria-label="Copy">Copy code</button></div><div class="overflow-y-auto"><code class="whitespace-pre! language-typescript">function debounce(fn: () =&gt; void, ms: number) {
+  let id: number | undefined;
+  return () =&gt; { clearTimeout(id); id = setTimeout(fn, ms); };
+}
+</code></div></div></pre>
+        <table><thead><tr><th>Option</th><th>Default</th></tr></thead><tbody><tr><td>ms</td><td>300</td></tr></tbody></table>
+        <span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow></mrow><annotation encoding="application/x-tex">T_{total} = n \cdot t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true">T = n·t</span></span></span>
+        <ul><li><p>Leading edge</p></li><li><p>Trailing edge</p></li></ul>
+      </div>
+    </div>
+  </article>
+  <article data-testid="conversation-turn-3">
+    <div data-message-author-role="user" data-message-id="u2"><div class="whitespace-pre-wrap">And throttle?</div></div>
+  </article>
+  <article data-testid="conversation-turn-4">
+    <div data-message-author-role="assistant" data-message-id="a2">
+      <div class="markdown prose result-streaming"><p>Throttle limits calls to</p></div>
+    </div>
+  </article>
+</main>
+</body>
+</html>
